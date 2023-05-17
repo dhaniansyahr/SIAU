@@ -36,7 +36,7 @@ const Login = () => {
                                 <HiOutlineKey size={20} />
                             </div>
                             <input
-                                type="text"
+                                type="password"
                                 placeholder="Password"
                                 className="bg-white opacity-75 rounded-r-md md:w-[20rem] w-[17rem]"
                             />
