@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,32 +40,44 @@ Route::get('/', function () {
      return Inertia::render('Login');
 })->name('login');
 
-Route::get('/dashboard', function () {
-     return Inertia::render('DashboardUser');
-})->name('dashboard');
+Route::post('proses_login', [AuthController::class, 'proses_login'])->name('proses_login');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/simkuliah', function () {
-     return Inertia::render('Simkuliah');
-})->name('simkuliah');
+Route::group(['middleware' => ['auth']], function () {
+     Route::group(['middleware' => ['cek_login:admin']], function () {
+         Route::resource('admin', AdminController::class);
+     });
+     Route::group(['middleware' => ['cek_login:editor']], function () {
+         Route::resource('editor', AdminController::class);
+     });
 
-Route::get('/dashboard-krs', function () {
-     return Inertia::render('DashboardKRS');
-})->name('dashboard-krs');
+     Route::get('/dashboard', function () {
+          return Inertia::render('DashboardUser');
+     })->name('dashboard');
+     
+     Route::get('/simkuliah', function () {
+          return Inertia::render('Simkuliah');
+     })->name('simkuliah');
+     
+     Route::get('/dashboard-krs', function () {
+          return Inertia::render('DashboardKRS');
+     })->name('dashboard-krs');
+     
+     Route::get('/isi-krs', function () {
+          return Inertia::render('IsiKRS');
+     })->name('isi-krs');
+     
+     Route::get('/khs', function () {
+          return Inertia::render('KHS');
+     })->name('khs');
+     
+     Route::get('/pkrs', function () {
+          return Inertia::render('PKRS');
+     })->name('pkrs');
+     
+     Route::get('/mata-kuliah', function () {
+          return Inertia::render('MataKuliah');
+     })->name('matakuliah');
+ });
 
-Route::get('/isi-krs', function () {
-     return Inertia::render('IsiKRS');
-})->name('isi-krs');
-
-Route::get('/khs', function () {
-     return Inertia::render('KHS');
-})->name('khs');
-
-Route::get('/pkrs', function () {
-     return Inertia::render('PKRS');
-})->name('pkrs');
-
-Route::get('/mata-kuliah', function () {
-     return Inertia::render('MataKuliah');
-})->name('matakuliah');
-
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

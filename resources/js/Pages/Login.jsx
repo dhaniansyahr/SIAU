@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/react";
 const Login = () => {
     return (
         <div className="h-screen bg-emerald-400 flex items-center justify-center md:flex md:items-center md:justify-center">
-            <form className="h-auto flex flex-col items-center justify-center md:flex md:flex-row md:gap-10">
+            <form className="h-auto flex flex-col items-center justify-center md:flex md:flex-row md:gap-10" method="post">
                 <div className="w-auto bg-emerald-400 mb-32 md:relative md:bottom-[2rem]">
                     <p className="text-2xl font-extrabold md:text-4xl md:text-left text-center">
                         SIA - USK
