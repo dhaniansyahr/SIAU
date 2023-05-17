@@ -1,16 +1,15 @@
 import React from "react";
-import { HiMenuAlt2 } from "react-icons/hi";
 import logo from "../../../../public/unsyiah.png";
 import user from "../../../../public/UserProfile.jpg";
 import { Link } from "@inertiajs/react";
-
 import { CgTranscript } from "react-icons/cg";
-import { HiOutlineAcademicCap } from "react-icons/hi";
+// import { HiOutlineAcademicCap } from "react-icons/hi";
 import { VscFileSubmodule } from "react-icons/vsc";
 import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettingsLine } from "react-icons/ri";
+import { HiMenuAlt2 } from "react-icons/hi";
+// import { RiSettingsLine } from "react-icons/ri";
 
-const Sidebar = () => {
+const SidebarSetting = () => {
     const [open, setOpen] = React.useState(false);
     return (
         <div
@@ -77,7 +76,9 @@ const Sidebar = () => {
                             <div className="relative">
                                 <MdOutlineDashboard size={20} />
                             </div>
-                            <button
+                            <Link
+                                href={route("biodata")}
+                                as="button"
                                 style={{
                                     transitionDelay: `${1 + 3}00ms`,
                                 }}
@@ -86,15 +87,15 @@ const Sidebar = () => {
                                     "opacity-0 translate-x-28 overflow-hidden"
                                 }`}
                             >
-                                Dashboard
-                            </button>
+                                Biodata
+                            </Link>
                         </div>
                         <div className="flex flex-row gap-2 items-center">
                             <div className="relative">
                                 <VscFileSubmodule size={20} />
                             </div>
                             <Link
-                                href={route("dashboard-krs")}
+                                href={route("security")}
                                 as="button"
                                 style={{
                                     transitionDelay: `${2 + 3}00ms`,
@@ -104,7 +105,7 @@ const Sidebar = () => {
                                     "opacity-0 translate-x-28 overflow-hidden"
                                 }`}
                             >
-                                KRS
+                                Security & Sign in
                             </Link>
                         </div>
                         <div className="flex flex-row gap-2 items-center">
@@ -112,7 +113,7 @@ const Sidebar = () => {
                                 <CgTranscript size={20} />
                             </div>
                             <Link
-                                href={route("simkuliah")}
+                                href={route("dashboard")}
                                 as="button"
                                 style={{
                                     transitionDelay: `${3 + 3}00ms`,
@@ -122,49 +123,14 @@ const Sidebar = () => {
                                     "opacity-0 translate-x-28 overflow-hidden"
                                 }`}
                             >
-                                Sim Kuliah
+                                Back to Dashboard
                             </Link>
                         </div>
-                        <div className="flex flex-row gap-2 items-center">
-                            <div className="relative">
-                                <HiOutlineAcademicCap size={20} />
-                            </div>
-                            <h2
-                                style={{
-                                    transitionDelay: `${4 + 3}00ms`,
-                                }}
-                                className={`whitespace-pre duration-500 ${
-                                    !open &&
-                                    "opacity-0 translate-x-28 overflow-hidden"
-                                }`}
-                            >
-                                E - Learning
-                            </h2>
-                        </div>
                     </div>
-                </div>
-                <div
-                    className={`absolute bottom-5 gap-4 p-2 
-                        hover:bg-emerald-300 rounded-md justify-start border flex items-center duration-500 ${
-                            open ? "mx-4 w-56" : "mx-1 w-12"
-                        }`}
-                >
-                    <div>
-                        <RiSettingsLine size={20} />
-                    </div>
-                    <Link
-                        href={route("biodata")}
-                        as="button"
-                        className={`whitespace-pre duration-500 font-medium text-sm ${
-                            !open && "opacity-0 translate-x-28 overflow-hidden"
-                        }`}
-                    >
-                        Setting
-                    </Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Sidebar;
+export default SidebarSetting;

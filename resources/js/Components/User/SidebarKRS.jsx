@@ -194,7 +194,7 @@ const SidebarKRS = () => {
                                 <CgTranscript size={20} />
                             </div>
                             <Link
-                                href={route("simkuliah")}
+                                href={route("transkrip")}
                                 as="button"
                                 style={{
                                     transitionDelay: `${3 + 3}00ms`,
@@ -211,7 +211,9 @@ const SidebarKRS = () => {
                             <div className="relative">
                                 <HiOutlineAcademicCap size={20} />
                             </div>
-                            <h2
+                            <Link
+                                href={route("ijazah")}
+                                as="button"
                                 style={{
                                     transitionDelay: `${4 + 3}00ms`,
                                 }}
@@ -221,13 +223,15 @@ const SidebarKRS = () => {
                                 }`}
                             >
                                 Ijazah
-                            </h2>
+                            </Link>
                         </div>
                         <div className="flex flex-row gap-2 items-center">
                             <div className="relative">
                                 <HiOutlineAcademicCap size={20} />
                             </div>
-                            <h2
+                            <Link
+                                href={route("transkrip")}
+                                as="button"
                                 style={{
                                     transitionDelay: `${4 + 3}00ms`,
                                 }}
@@ -237,11 +241,13 @@ const SidebarKRS = () => {
                                 }`}
                             >
                                 Histori Niilai
-                            </h2>
+                            </Link>
                         </div>
                     </div>
                 </div>
-                <div
+                <Link
+                    href={route("biodata")}
+                    as="button"
                     className={`absolute bottom-5 gap-4 p-2 
                         hover:bg-emerald-300 rounded-md justify-start border flex items-center duration-500 ${
                             open ? "mx-4 w-56" : "mx-1 w-12"
@@ -251,14 +257,14 @@ const SidebarKRS = () => {
                         <RiSettingsLine size={20} />
                     </div>
 
-                    <h2
+                    <h1
                         className={`whitespace-pre duration-500 font-medium text-sm ${
                             !open && "opacity-0 translate-x-28 overflow-hidden"
                         }`}
                     >
                         Setting
-                    </h2>
-                </div>
+                    </h1>
+                </Link>
             </div>
         </div>
     );
