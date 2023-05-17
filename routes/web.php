@@ -47,4 +47,12 @@ Route::get('/simkuliah', function () {
      return Inertia::render('Simkuliah');
 })->name('simkuliah');
 
+Route::get('/dashboard-krs', function () {
+     return Inertia::render('DashboardKRS');
+})->name('dashboard-krs');
+
+Route::get('/isi-krs', function () {
+     return Inertia::render('IsiKRS');
+})->name('isi-krs');
+
 require __DIR__.'/auth.php';

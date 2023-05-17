@@ -11,6 +11,13 @@ import user from "../../../../public/UserProfile.jpg";
 
 const SidebarKRS = () => {
     const [open, setOpen] = useState(false);
+    const [submenu, setSubmenu] = useState(false);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setSubmenu(!submenu);
+        console.log(submenu + " " + open);
+    };
     return (
         <div
             className={` ${
@@ -88,76 +95,88 @@ const SidebarKRS = () => {
                                 Dashboard
                             </button>
                         </div>
-                        <div className="flex flex-row gap-2 items-center">
-                            <div className="relative">
-                                <MdOutlineDashboard size={20} />
-                            </div>
-                            <button
-                                id="dropdownDefaultButton"
-                                data-dropdown-toggle="dropdown"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                type="button"
-                            >
-                                KRS{" "}
-                                <svg
-                                    class="w-4 h-4 ml-2"
-                                    aria-hidden="true"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
+                        <div className="flex flex-col gap-2 items-start">
+                            <div className="flex flex-row gap-2 items-start">
+                                <div className="relative">
+                                    <MdOutlineDashboard size={20} />
+                                </div>
+                                <button
+                                    style={{
+                                        transitionDelay: `${1 + 3}00ms`,
+                                    }}
+                                    className={`whitespace-pre duration-500 flex flex-row gap-5 hover:bg-emerald-800 ${
+                                        !open &&
+                                        "opacity-0 translate-x-28 overflow-hidden"
+                                    }`}
+                                    onClick={handleClick}
                                 >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    ></path>
-                                </svg>
-                            </button>
+                                    KRS{" "}
+                                    <svg
+                                        class="w-4 h-4 ml-2"
+                                        aria-hidden="true"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M19 9l-7 7-7-7"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
                             {/* <!-- Dropdown menu --> */}
-                            <div
-                                id="dropdown"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-                            >
-                                <ul
-                                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                    aria-labelledby="dropdownDefaultButton"
-                                >
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Isi KRS
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            PKRS
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            KHS
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Mata Kuliah
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            {submenu && open && (
+                                <div className="flex flex-col gap-2 items-start px-10">
+                                    <button
+                                        style={{
+                                            transitionDelay: `${1 + 3}00ms`,
+                                        }}
+                                        className={`whitespace-pre duration-500 hover:bg-emerald-800 ${
+                                            !open &&
+                                            "opacity-0 translate-x-28 overflow-hidden"
+                                        }`}
+                                    >
+                                        Isi KRS
+                                    </button>
+                                    <button
+                                        style={{
+                                            transitionDelay: `${1 + 3}00ms`,
+                                        }}
+                                        className={`whitespace-pre duration-500 hover:bg-emerald-800 ${
+                                            !open &&
+                                            "opacity-0 translate-x-28 overflow-hidden"
+                                        }`}
+                                    >
+                                        KHS
+                                    </button>
+                                    <button
+                                        style={{
+                                            transitionDelay: `${1 + 3}00ms`,
+                                        }}
+                                        className={`whitespace-pre duration-500 hover:bg-emerald-800 ${
+                                            !open &&
+                                            "opacity-0 translate-x-28 overflow-hidden"
+                                        }`}
+                                    >
+                                        PKRS
+                                    </button>
+                                    <button
+                                        style={{
+                                            transitionDelay: `${1 + 3}00ms`,
+                                        }}
+                                        className={`whitespace-pre duration-500 hover:bg-emerald-800 ${
+                                            !open &&
+                                            "opacity-0 translate-x-28 overflow-hidden"
+                                        }`}
+                                    >
+                                        Mata Kuliah
+                                    </button>
+                                </div>
+                            )}
                         </div>
 
                         <div className="flex flex-row gap-2 items-center">
