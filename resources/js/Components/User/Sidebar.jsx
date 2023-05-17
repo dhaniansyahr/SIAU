@@ -93,18 +93,18 @@ const Sidebar = () => {
                             <div className="relative">
                                 <VscFileSubmodule size={20} />
                             </div>
-                            <Link>
-                                <h2
-                                    style={{
-                                        transitionDelay: `${2 + 3}00ms`,
-                                    }}
-                                    className={`whitespace-pre duration-500 ${
-                                        !open &&
-                                        "opacity-0 translate-x-28 overflow-hidden"
-                                    }`}
-                                >
-                                    KRS
-                                </h2>
+                            <Link
+                                href={route("dashboard-krs")}
+                                as="button"
+                                style={{
+                                    transitionDelay: `${2 + 3}00ms`,
+                                }}
+                                className={`whitespace-pre duration-500 ${
+                                    !open &&
+                                    "opacity-0 translate-x-28 overflow-hidden"
+                                }`}
+                            >
+                                KRS
                             </Link>
                         </div>
                         <div className="flex flex-row gap-2 items-center">
