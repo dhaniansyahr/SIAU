@@ -55,4 +55,16 @@ Route::get('/isi-krs', function () {
      return Inertia::render('IsiKRS');
 })->name('isi-krs');
 
+Route::get('/khs', function () {
+     return Inertia::render('KHS');
+})->name('khs');
+
+Route::get('/pkrs', function () {
+     return Inertia::render('PKRS');
+})->name('pkrs');
+
+Route::get('/mata-kuliah', function () {
+     return Inertia::render('MataKuliah');
+})->name('matakuliah');
+
 require __DIR__.'/auth.php';

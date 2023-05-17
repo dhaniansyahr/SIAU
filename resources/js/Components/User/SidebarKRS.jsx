@@ -83,17 +83,19 @@ const SidebarKRS = () => {
                             <div className="relative">
                                 <MdOutlineDashboard size={20} />
                             </div>
-                            <button
+                            <Link
+                                href={route("dashboard-krs")}
+                                as="button"
                                 style={{
                                     transitionDelay: `${1 + 3}00ms`,
                                 }}
-                                className={`whitespace-pre duration-500 hover:bg-emerald-800 ${
+                                className={`whitespace-pre duration-500 ${
                                     !open &&
                                     "opacity-0 translate-x-28 overflow-hidden"
                                 }`}
                             >
                                 Dashboard
-                            </button>
+                            </Link>
                         </div>
                         <div className="flex flex-col gap-2 items-start">
                             <div className="flex flex-row gap-2 items-start">
@@ -102,7 +104,7 @@ const SidebarKRS = () => {
                                 </div>
                                 <button
                                     style={{
-                                        transitionDelay: `${1 + 3}00ms`,
+                                        transitionDelay: `${2 + 3}00ms`,
                                     }}
                                     className={`whitespace-pre duration-500 flex flex-row gap-5 hover:bg-emerald-800 ${
                                         !open &&
@@ -131,7 +133,9 @@ const SidebarKRS = () => {
                             {/* <!-- Dropdown menu --> */}
                             {submenu && open && (
                                 <div className="flex flex-col gap-2 items-start px-10">
-                                    <button
+                                    <Link
+                                        href={route("isi-krs")}
+                                        as="button"
                                         style={{
                                             transitionDelay: `${1 + 3}00ms`,
                                         }}
@@ -141,8 +145,10 @@ const SidebarKRS = () => {
                                         }`}
                                     >
                                         Isi KRS
-                                    </button>
-                                    <button
+                                    </Link>
+                                    <Link
+                                        href={route("khs")}
+                                        as="button"
                                         style={{
                                             transitionDelay: `${1 + 3}00ms`,
                                         }}
@@ -152,8 +158,10 @@ const SidebarKRS = () => {
                                         }`}
                                     >
                                         KHS
-                                    </button>
-                                    <button
+                                    </Link>
+                                    <Link
+                                        href={route("pkrs")}
+                                        as="button"
                                         style={{
                                             transitionDelay: `${1 + 3}00ms`,
                                         }}
@@ -163,8 +171,10 @@ const SidebarKRS = () => {
                                         }`}
                                     >
                                         PKRS
-                                    </button>
-                                    <button
+                                    </Link>
+                                    <Link
+                                        href={route("matakuliah")}
+                                        as="button"
                                         style={{
                                             transitionDelay: `${1 + 3}00ms`,
                                         }}
@@ -174,7 +184,7 @@ const SidebarKRS = () => {
                                         }`}
                                     >
                                         Mata Kuliah
-                                    </button>
+                                    </Link>
                                 </div>
                             )}
                         </div>
