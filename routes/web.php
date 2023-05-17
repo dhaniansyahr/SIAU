@@ -67,4 +67,24 @@ Route::get('/mata-kuliah', function () {
      return Inertia::render('MataKuliah');
 })->name('matakuliah');
 
+Route::get('/transkrip', function () {
+     return Inertia::render('Transkrip');
+})->name('transkrip');
+
+Route::get('/ijazah', function () {
+     return Inertia::render('Ijazah');
+})->name('ijazah');
+
+Route::get('/histori-nilai', function () {
+     return Inertia::render('HistoriNilai');
+})->name('histori-nilai');
+
+Route::get('/biodata', function () {
+     return Inertia::render('Biodata');
+})->name('biodata');
+
+Route::get('/security', function () {
+     return Inertia::render('Security');
+})->name('security');
+
 require __DIR__.'/auth.php';
