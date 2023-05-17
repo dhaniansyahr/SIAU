@@ -8,6 +8,7 @@ class AuthController extends Controller
 {
     public function proses_login(Request $request)
     {
+        dd($request);
         request()->validate(
             [
                 'npm' => 'required',
